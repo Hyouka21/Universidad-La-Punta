@@ -250,7 +250,8 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbBorrarActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        int id = Integer.parseInt(jtfId.getText());
+       
+        if(jtfId.getText().length()!=0){int id = Integer.parseInt(jtfId.getText());
         Alumno alumno = alumnoData.buscarAlumno(id);
         if (alumno != null) {
             
@@ -258,6 +259,8 @@ public class VistaAlumnos extends javax.swing.JInternalFrame {
             jtfNombre.setText(alumno.getNombreAlumno());
             jdcFecha.setDate(Date.valueOf(alumno.getFnAlumno()));
             jcbEstado.setSelected(alumno.isActivo());
+        }}else{
+        JOptionPane.showMessageDialog(this, "Debe ingresar el id");
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
